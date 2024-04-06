@@ -11,12 +11,12 @@ genres = df['Genre'].str.split(', ')
 genre_counts = pd.Series([genre for sublist in genres for genre in sublist]).value_counts()
 
 # Filtra los géneros para excluir "Unknown" y toma los primeros 7
-top_genres = genre_counts[genre_counts.index != 'unknown'].head(10)
+top_genres = genre_counts[genre_counts.index != 'unknown'].head(20)
 
 # Crea el gráfico
 plt.figure(figsize=(12, 6))
 top_genres.plot(kind='bar', color='skyblue')
-plt.title('Top 7 Géneros de Películas (sin "Unknown")')
+plt.title('Peliculas por género')
 plt.xlabel('Género')
 plt.ylabel('Cantidad de Películas')
 plt.xticks(rotation=45, ha='right')  # Rotar las etiquetas del eje x para una mejor visualización
